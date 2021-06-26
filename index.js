@@ -127,36 +127,36 @@ app.post('/vet_app/api/addmaincontent',function(req,res){
   });
 });
 
-app.get('/vet_app/api/getchapterlist',function(req,res){
-  let sql = "select * from vet_app.chapter_head ";
+app.get('/vet_app/api/getAllChapters',function(req,res){
+  let sql = "select * from vet_app.chapter";
   conn.query(sql,function(error , results,fields){
     if(error) throw error;
     if(!error){
-      return res.send({error:false,data:results,message:'Data Fetch Successfully'});
+      return res.send({error:false,data:results,message:'All Chapters Retuned'});
     }
   });
 });
-app.get('/vet_app/api/getallsubChapter',function(req,res){
-  let sql = "select * from vet_app.chapter_subhead ";
+app.get('/vet_app/api/getAllSections',function(req,res){
+  let sql = "select * from vet_app.section";
   conn.query(sql,function(error , results,fields){
     if(error) throw error;
     if(!error){
-      return res.send({error:false,data:results,message:'Data Fetch Successfully'});
+      return res.send({error:false,data:results,message:'All Sections Retuned'});
     }
   });
 });
-app.get('/vet_app/api/getallMainContent',function(req,res){
-  let sql = "select * from vet_app.main_content ";
+app.get('/vet_app/api/getAllContent',function(req,res){
+  let sql = "select * from vet_app.content";
   conn.query(sql,function(error , results,fields){
     if(error) throw error;
     if(!error){
-      return res.send({error:false,data:results,message:'Data Fetch Successfully'});
+      return res.send({error:false,data:results,message:'All Contents Retuned'});
     }
   });
 });
 
 
-  var port = process.env.PORT || 6013;
+  var port = process.env.PORT || 6014;
 
   //Server listening
   app.listen(port,'0.0.0.0',() =>{
